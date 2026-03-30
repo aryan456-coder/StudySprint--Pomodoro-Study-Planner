@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudySprint - Pomodoro Study Planner</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">📚 StudySprint</div>
+            <div class="user-info">
+                <div class="streak" id="streak">🔥 0 Day Streak</div>
+                <div class="user-name">Welcome, Student!</div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="timer-section">
+                <div class="timer-display">
+                    <div class="session-type" id="sessionType">FOCUS SESSION</div>
+                    <div class="time" id="timerDisplay">25:00</div>
+                    
+                    <div class="timer-controls">
+                        <button onclick="startTimer()" class="btn btn-primary" id="startBtn">▶ Start</button>
+                        <button onclick="pauseTimer()" class="btn btn-secondary" id="pauseBtn">⏸ Pause</button>
+                        <button onclick="skipSession()" class="btn btn-secondary" id="skipBtn">⏭ Skip</button>
+                        <button onclick="resetTimer()" class="btn btn-secondary" id="resetBtn">🔄 Reset</button>
+                    </div>
+                </div>
+
+                <div class="current-task">
+                    <h3>Currently Working On</h3>
+                    <div class="task-title" id="currentTaskDisplay">
+                        Select a task from the list →
+                    </div>
+                    <div class="task-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="currentTaskProgress"></div>
+                        </div>
+                        <span class="pomodoro-count" id="currentTaskPomodoros">0/0 🍅</span>
+                    </div>
+                </div>
+                <div class="today-progress">
+                    <h3>Today's Progress</h3>
+                    <div class="progress-item">
+                        <span>Completed Pomodoros</span>
+                        <strong id="todayPomodoros">0 🍅</strong>
+                    </div>
+                    <div class="progress-item">
+                        <span>Study Time</span>
+                        <strong id="todayTime">0h 0m</strong>
+                    </div>
+                    <div class="progress-item">
+                        <span>Tasks Completed</span>
+                        <strong id="todayTasks">0/0</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tasks-section">
+                <div class="section-header">
+                    <h2>Today's Tasks</h2>
+                    <button onclick="toggleAddTaskForm()" class="add-task-btn" id="addTaskBtn">+ Add Task</button>
+                </div>
+
+                <div class="add-task-form" id="addTaskForm">
+                    <div class="form-group">
+                        <label for="taskName">Task Name</label>
+                        <input type="text" id="taskName" placeholder="e.g., Study Calculus">
+                    </div>
+                    <div class="form-group">
+                        <label for="taskSubject">Subject</label>
+                        <input type="text" id="taskSubject" placeholder="e.g., Mathematics, Physics, History">
+                    </div>
+                    <div class="form-group">
+                        <label for="taskDescription">Description</label>
+                        <input type="text" id="taskDescription" placeholder="e.g., Chapter 7 exercises">
+                    </div>
+                    <div class="form-group">
+                        <label for="taskPomodoros">Estimated Pomodoros</label>
+                        <input type="number" id="taskPomodoros" min="1" value="3">
+                    </div>
+                    <div class="form-buttons">
+                        <button onclick="addTask()" class="btn btn-primary" id="submitTaskBtn">Add Task</button>
+                        <button onclick="toggleAddTaskForm()" class="btn btn-secondary" id="cancelTaskBtn">Cancel</button>
+                    </div>
+                </div>
+
+                <div id="tasksList">
+                    <div class="task-item">
+                        <input type="checkbox" class="task-checkbox">
+                        <div class="task-details">
+                            <div class="task-title">
+                                <span class="subject-tag subject-math">Mathematics</span>
+                                Integration Problems
+                            </div>
+                            <div class="task-subject">Chapter 7, Exercises 1-20</div>
+                        </div>
+                        <div class="task-pomodoros">0/5 🍅</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-section">
+            <h2>Weekly Statistics</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="weekPomodoros">0</div>
+                    <div class="stat-label">Pomodoros Completed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="weekHours">0h</div>
+                    <div class="stat-label">Total Study Time</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="completionRate">0%</div>
+                    <div class="stat-label">Task Completion Rate</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="streakCount">0</div>
+                    <div class="stat-label">Day Streak</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
